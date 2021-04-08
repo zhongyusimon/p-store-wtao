@@ -1,0 +1,73 @@
+<!--index.wxml-->
+<import src="../../lib/wxParse/wxParse.wxml" />
+
+<!--1px = 750/320 = 2.34rpx;-->
+<view class="container">
+    <!-- <view class="search">
+        <navigator url="/pages/catalog/catalog">
+            <van-icon  name="apps-o" size="45rpx" />
+        </navigator>
+        <navigator url="/pages/search/search" class="input">
+            <image class="icon"></image>
+            <text class="txt">搜索</text>
+        </navigator>
+    </view> -->
+   <van-notice-bar
+        wx:if="{{announcements.length > 0}}"
+        mode="closeable"
+        scrollable="false"
+        left-icon="volume-o"
+        text="{{announcements[0].title}}"
+        data-link="/pages/goods/goods?id=1181140"
+        bindtap="jumpToMp"/>
+    
+
+    <view style="width:100%;" wx:if="{{adMap.firstVideo != null && adMap.firstVideo.length > 0}}">
+        <video class="video" poster="{{adMap.firstVideo[0].videoVO.coverUrl}}"
+          src="{{adMap.firstVideo[0].videoVO.url}}"/>
+    </view>
+    <van-skeleton row="10" loading="{{ loading }}">
+        <view class="content">
+            <template is="wxParse" data="{{wxParseData:topTopicDetail.nodes}}" />
+        </view>
+    </van-skeleton>
+    <view class="quan" wx:if="{{coupons.length>0}}">
+        <view class="quan-item" wx:for="{{coupons}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+            <view class="money">{{item.discount}}</view>
+            <view class="condition">满{{item.min}}使用</view>
+            <view class="get-btn" bindtap="getCoupon" data-index="{{item.id}}">领取</view>
+        </view>
+    </view>
+    <swiper class="banner" wx:if="{{adMap.firstPage != null}}" indicator-dots="true" autoplay="true" interval="10000" duration="1000">
+        <swiper-item wx:for="{{adMap.firstPage}}" wx:key="id">
+            <image bindtap="tapBanner" data-ad="{{item}}" src="{{item.url}}" background-size="cover"></image>
+        </swiper-item>
+    </swiper>
+    <van-skeleton row="10" loading="{{ loading }}">
+        <view class="content">
+            <template is="wxParse" data="{{wxParseData:topicDetail.nodes}}" />
+        </view>
+    </van-skeleton>
+
+    <view class="a-section good-grid">
+        <navigator class="h" url="/pages/catalog/catalog">
+            <text class="txt">全部商品</text>
+            <text class="txt-r">查看更多 ></text>
+        </navigator>
+        <view class="b">
+            <block wx:for="{{goods}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+                <view class="item good-item {{index % 2 == 0 ? '' : 'item-b'}}">
+                <navigator url="../goods/goods?id={{item.id}}" class="a">
+                    <image class="img" src="{{item.picUrl}}" background-size="cover"></image>
+                    <text class="name">{{item.name}}</text>
+                    <!-- <text class="desc">{{item.brief}}</text> -->
+                    <text class="price">￥{{item.retailPrice}}</text>
+                </navigator>
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class="contact" bindtap="openCartPage">
+        <van-icon name="shopping-cart" size="50rpx" color="#fff"/>
+    </view>
+</view>

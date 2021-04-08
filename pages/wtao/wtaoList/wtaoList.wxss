@@ -1,0 +1,108 @@
+page{
+  background-color: #EEEEEE;
+}
+
+.container {
+  box-sizing: border-box;
+  background-color: #EEEEEE;
+  font-family: PingFangSC-Light, helvetica, 'Heiti SC';
+  margin: 0 20rpx;
+}
+
+.banner {
+  width: 710rpx;
+  height: 260rpx;
+  margin: 20rpx 0rpx;
+}
+
+.banner image {
+  width: 100%;
+  height: 260rpx;
+  border-radius: 20rpx;
+}
+
+.nav-tabs{
+  height: 120rpx;
+  display: flex;
+}
+
+.nav-tabs .nav-tab-active{
+  color: #ab956d;
+}
+
+.nav-tabs .nav-tab{
+  border-right:1px solid #CCCCCC;
+  width: 176rpx;
+  text-align: center;
+  margin: 40rpx 0rpx;
+  font-size: 32rpx;
+}
+
+.nav-tabs .nav-tab:last-child{
+  border-right:none;
+}
+
+.img-collects {
+  height: 50rpx;
+  width: 120rpx;
+  padding: 5rpx;
+  background-color: rgba(0,0,0,0.5);
+  font-size: 20rpx;
+  box-sizing: border-box;
+  background-size: 55rpx auto;
+  position: absolute;
+  right: 10rpx;
+  bottom: 20rpx;
+  border-radius: 10px;
+}
+
+.noContent{
+  display: block;
+  line-height: 80rpx;
+  text-align: center;
+  margin-top: 100rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.wtao-card .operation .likes .txt {
+  font-size: 26rpx;
+  color: #000;
+  line-height: 60rpx;
+  margin: 0rpx 10rpx;
+}
+
+.wtao-card .content .title {
+  font-size: 32rpx;
+  font-weight: bold;
+  display: block;
+  color: #000;
+  line-height: 45rpx;
+}
+.wtao-card .content .title-indent {
+  font-size: 32rpx;
+  font-weight: bold;
+  display: block;
+  color: #000;
+  text-indent: 20rpx;
+  line-height: 45rpx;
+}
+.wtao-card .content .content {
+  font-size: 31rpx;
+  display: block;
+  color: #000;
+  line-height: 45rpx;
+}
+.wtao-card .content .content-indent {
+  font-size: 31rpx;
+  display: block;
+  color: #000;
+  text-indent: 20rpx;
+  line-height: 45rpx;
+}
+
+.wtao-card .content .desc {
+  font-size: 26rpx;
+  color:#666;
+  display: block;
+}

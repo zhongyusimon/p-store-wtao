@@ -1,0 +1,79 @@
+<wxs module="dateUtil" src="../../../utils/timeUtil.wxs"></wxs>
+
+<view class="container">
+  <swiper class="banner" indicator-dots="true" autoplay="true" interval="10000" duration="1000" wx:if="{{adMap != null && adMap.wtao != null}}">
+    <swiper-item wx:for="{{adMap.wtao}}" wx:key="id">
+      <image bindtap="tapBanner" data-ad="{{item}}" src="{{item.url}}" mode="aspectFill"></image>
+    </swiper-item>
+  </swiper>
+  <view class="nav-tabs">
+    <view class="nav-tab {{type == 0 ? 'nav-tab-active' : ''}}" data-type='0' bindtap="tapTypeTab">最新微淘</view>
+    <view class="nav-tab {{type == 2 ? 'nav-tab-active' : ''}}" data-type='2' bindtap="tapTypeTab">上新</view>
+    <view class="nav-tab {{type == 3 ? 'nav-tab-active' : ''}}" data-type='3' bindtap="tapTypeTab">种草</view>
+    <view class="nav-tab {{type == 5 ? 'nav-tab-active' : ''}}" data-type='5' bindtap="tapTypeTab">视频</view>
+  </view>
+  <view class="noContent" wx:if="{{wtaoList == null || wtaoList.length == 0}}">
+    <van-icon name="bullhorn-o" size="120rpx"/>
+    <view>作者很懒，还没留下什么创作呢～～</view>
+  </view>
+  <view class="wtao-card" wx:for="{{wtaoList}}" wx:for-item="wtao" wx:key="wtaoId">
+    <view class="content">
+      <view class="time">{{dateUtil.dateFormat(wtao.createTime, "MM月dd日 hh:mm")}}</view>
+      <view style="padding: 20rpx 0;" data-wtao="{{wtao}}" bindtap="goDetail">
+        <van-tag wx:if="{{typeMap[wtao.type].color != null}}" color="{{typeMap[wtao.type].color}}" style="float:left;">{{typeMap[wtao.type].text}}</van-tag>
+        <text class="title" wx:if="{{wtao.type == 4}}">{{wtao.title}}</text>
+        <text class="{{typeMap[wtao.type].color != null ? 'content-indent' : 'content'}}" wx:else>{{wtao.content}}</text>
+        <text wx:if="{{wtao.content != null && wtao.type == 4}}" class="desc">{{wtao.content}}</text>
+      </view>
+      <block wx:if="{{wtao.type == 1}}">
+        <van-grid column-num="3" gutter="{{ 10 }}rpx" border="{{ false }}">
+          <van-grid-item use-slot wx:for="{{ wtao.imageList }}" wx:for-item="picItem" wx:key="id">
+            <image style="width: 100%; height:240rpx;" src="{{picItem}}" mode="aspectFill" data-wtao="{{wtao}}" data-src="{{picItem}}" bindtap="imgTap"></image>
+          </van-grid-item>
+        </van-grid>
+      </block>
+      <block wx:if="{{wtao.type == 2 || wtao.type == 3}}">
+        <van-grid column-num="3" gutter="{{ 10 }}rpx" border="{{ false }}">
+          <block wx:for="{{ wtao.wtaoProducts}}" wx:for-item="product" wx:key="id">
+            <van-grid-item use-slot wx:for="{{ product.imageList }}" wx:for-item="picItem" wx:key="id">
+              <image style="width: 100%; height:240rpx;" src="{{picItem}}" mode="aspectFill" data-wtao="{{wtao}}" data-src="{{picItem}}" bindtap="imgTap"></image>
+            </van-grid-item>
+          </block>
+        </van-grid>
+      </block>
+      <block wx:if="{{wtao.type == 5}}">
+        <view style="width:100%;position:relative;" wx:if="{{wtao.videoList != null && wtao.videoList.length > 0}}" >
+          <van-icon name="play-circle-o" style="position: absolute; top: 150rpx; left: 250rpx;z-index: 1;" color="#FFFFFF" size="120rpx" data-wtao="{{wtao}}" bindtap="imgTap"/>
+          <image class="video" src="{{wtao.videoList[0].coverUrl}}" mode="widthFix" data-wtao="{{wtao}}" bindtap="imgTap"></image>
+        </view>
+      </block>
+      <navigator url="../wtao/wtao?id={{wtao.id}}" wx:if="{{wtao.type == 4}}">
+        <image class="cover" style="width:100%;" src="{{wtao.coverUrl}}" mode="widthFix"></image>
+      </navigator>
+
+      <view class="tags" wx:if="{{wtao.hashtags.length > 0}}">
+        <van-tag class="tag" size="medium" color="#003366"  wx:for="{{ wtao.hashtags }}" wx:for-item="hashtag" wx:key="id" data-hashtag="{{hashtag}}" bindtap="linkToHashtag">#{{hashtag.name}}</van-tag>
+      </view>
+      <view class="operation">
+        <view class="likes">
+          <block wx:if="{{wtao.upVos.length > 0}}">
+            <view class="avatars">
+              <image class="avatar" wx:for="{{ wtao.upVos }}" wx:for-item="up" wx:key="id" src="{{up.avatar}}"></image>
+            </view>
+            <view class="txt">等{{wtao.upCt}}次赞</view>
+          </block>
+        </view>
+        <view class="btn">
+          <view class="share-btn">
+            <van-icon color="#CC3333" size="20px" name="like" wx:if="{{wtao.uped == 1}}" data-wtao="{{wtao}}" data-type="{{2}}" bindtap="upAction"/>
+            <van-icon size="20px" name="like-o" wx:elif="{{wtao.uped == 0}}" data-wtao="{{wtao}}" data-type="{{1}}" bindtap="upAction"/>
+          </view>
+          <button class="share-btn" data-wtao="{{wtao}}" open-type="share">
+            <van-icon size="20px" name="share" />
+          </button>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>

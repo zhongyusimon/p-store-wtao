@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "van-button": "../../../lib/button/index",
+    "van-icon": "../../../lib/icon/index",
+    "van-tag": "../../../lib/tag/index",
+    "van-grid": "../../../lib/grid/index",
+    "van-popup": "../../../lib/popup/index",
+    "van-card": "../../../lib/card/index",
+    "van-grid-item": "../../../lib/grid-item/index"
+  }
+}

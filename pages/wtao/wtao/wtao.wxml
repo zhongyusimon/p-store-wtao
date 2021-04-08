@@ -1,0 +1,70 @@
+<wxs module="dateUtil" src="../../../utils/timeUtil.wxs"></wxs>
+<!-- <mp-navigation-bar title="" opacity="0" auto-stick="{{true}}" hide-back="{{false}}"></mp-navigation-bar> -->
+
+<view class="container">
+  <view class="images" wx:if="{{wtao.type != 4 && displayImages != null}}">
+    <swiper class="swiper_box" bindchange="changeCurrent" indicator-dots="{{true}}" autoplay="{{false}}" easing-function="line" duration="800">
+      <swiper-item wx:for="{{ displayImages }}" wx:for-item="item" wx:key="item">
+        <image style="width: 100%;height: 100%;" src="{{item.src}}" mode="aspectFit" data-from="{{imageList}}" data-src="{{item.src}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class="describe-content">
+    <view class="title" wx:if="{{wtao.type == 4 && wtao.title != null}}">{{wtao.title}}</view>
+    <view class="sub-title" wx:if="{{wtao.type == 4}}">
+      <text wx:if="{{wtao.author != null}}" style="padding-right:50rpx;">作者：{{wtao.author}}</text>
+      <text>{{dateUtil.dateFormat(wtao.createTime, "yyyy年MM月dd日 hh:mm")}}</text>
+    </view>
+
+    <view class="operation">
+      <view class="likes">
+        <block wx:if="{{wtao.upVos.length > 0}}">
+          <view class="avatars">
+            <image class="avatar" wx:for="{{ wtao.upVos }}" wx:for-item="up" wx:key="id" src="{{up.avatar}}"></image>
+          </view>
+          <view class="txt">等{{wtao.upCt}}次赞</view>
+        </block>
+      </view>
+      <view class="btn">
+        <view class="share-btn">
+          <van-icon color="#CC3333" size="20px" name="like" wx:if="{{wtao.uped == 1}}" data-wtao="{{wtao}}" data-type="{{2}}" bindtap="upAction"/>
+          <van-icon color="#000" size="20px" name="like-o" wx:elif="{{wtao.uped == 0}}" data-wtao="{{wtao}}" data-type="{{1}}" bindtap="upAction"/>
+        </view>
+        <button class="share-btn" data-wtao="{{wtao}}" open-type="share">
+          <van-icon color="#000" size="20px" name="share" />
+        </button>
+      </view>
+    </view>
+    <view wx:if="{{wtao.type != 4}}">
+      <view class="wtao-title" wx:if="{{wtao.title != null}}">{{wtao.title}}</view>
+      <view class="wtao-view">{{wtao.viewCt}}阅读</view>
+      <text class="wtao-content">{{wtao.content}}</text>
+    </view>
+
+    <view class="tags" wx:if="{{wtao.hashtags.length > 0}}">
+      <van-tag class="tag" size="medium" color="#003366"  wx:for="{{ wtao.hashtags }}" wx:for-item="hashtag" wx:key="id" data-hashtag="{{hashtag}}" bindtap="linkToHashtag">#{{hashtag.name}}</van-tag>
+    </view>
+
+    <scroll-view class="content">
+      <import src="../../../lib/wxParse/wxParse.wxml" />
+      <template is="wxParse" data="{{wxParseData:detail.nodes}}" />
+    </scroll-view>
+  </view>
+  <!-- 商品列表 -->
+  <view class="related-goods" wx:if="{{wtao.wtaoProducts.length > 0}}">
+    <view class="h">
+      <text class="title">文中相关商品</text>
+    </view>
+    <view class="b">
+      <view class="item" wx:for="{{wtao.wtaoProducts}}" wx:key="id">
+        <navigator url="/pages/goods/goods?id={{item.goodsId}}">
+          <image class="img" src="{{item.picUrl}}" background-size="cover" mode="aspectFill"></image>
+          <text class="name">{{item.name}}</text>
+          <text class="price">￥{{item.retailPrice}}</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
+

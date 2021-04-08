@@ -1,0 +1,73 @@
+<view >
+  <view class="request-body">
+    <view wx:if="{{wtao.type != 5}}" style="width:100%; text-align:center; color: #FFF;height:50rpx;">{{currentNum + 1}} / {{displayImages.length}}</view>
+    <swiper wx:if="{{wtao.type != 5}}" class="swiper_box" current="{{currentNum}}" bindchange="changeCurrent" indicator-dots="{{false}}" autoplay="{{false}}" easing-function="line" duration="800">
+      <block wx:if="{{displayImages != null && displayImages.length > 0}}" wx:for="{{displayImages}}" wx:for-item="item" wx:key="id">
+      <!-- catchtouchmove="catchTouchMove" -->
+        <swiper-item>  
+          <view class="swiper-content">
+            <view class="swiper-bd">
+              <image src="{{item.src}}" background-size="cover" mode="aspectFit" data-from="{{imageList}}" data-src="{{item}}" bindtap="imgTap"></image>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="video-body" wx:if="{{wtao.type == 5}}">
+      <video class="video" src="{{wtao.videoList[0].url}}"/>
+    </view>
+    <view class="content-footer box-shadow">
+      <view class="operation">
+        <view class="likes">
+          <block wx:if="{{displayImages[currentNum] != null && displayImages[currentNum].product != null}}">
+            <navigator class="product" url="/pages/goods/goods?id={{displayImages[currentNum].product.goodsId}}">
+              <image class="avatar" src="{{displayImages[currentNum].product.picUrl}}"></image>
+              <view class="desc" >
+                <view class="title">{{displayImages[currentNum].product.name}}</view>
+                <view class="price">¥{{displayImages[currentNum].product.retailPrice}}<text class="origin-price">¥{{displayImages[currentNum].product.counterPrice}}</text></view>          
+              </view>
+            </navigator>
+          </block>
+          <block wx:elif="{{wtao.wtaoProducts != null && wtao.wtaoProducts.length > 0}}">
+            <view class="product" bindtap="showAllProduct">
+              <image class="avatar" src="{{wtao.wtaoProducts[0].picUrl}}"></image>
+              <view class="desc" >
+                <view class="title">{{wtao.wtaoProducts[0].name}}</view>
+                <view class="price">¥{{wtao.wtaoProducts[0].retailPrice}}<text class="origin-price">¥{{wtao.wtaoProducts[0].counterPrice}}</text></view>          
+              </view>
+            </view>
+            <view wx:if="{{wtao.wtaoProducts.length > 1}}" class="product-backgroud"></view>
+          </block>
+        </view>
+        <view class="btn">
+          <view class="share-btn">
+            <van-icon color="#CC3333" size="20px" name="like" wx:if="{{wtao.uped == 1}}" data-wtao="{{wtao}}" data-type="{{2}}" bindtap="upAction"/>
+            <van-icon color="#FFF" size="20px" name="like-o" wx:elif="{{wtao.uped == 0}}" data-wtao="{{wtao}}" data-type="{{1}}" bindtap="upAction"/>
+            <view style="color: #FFF;margin: 20rpx;">{{wtao.upCt}}</view>
+          </view>
+          <button class="share-btn" data-wtao="{{wtao}}" open-type="share">
+            <van-icon color="#FFF" size="20px" name="share" />
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <van-popup
+    show="{{ allPopupShow }}"
+    position="bottom"
+    custom-style="height: 70%"
+    bind:close="onCloseAllProduct">
+    <scroll-view scroll-y="true" style="width: 100%; height: auto;" >
+      <navigator url="/pages/goods/goods?id={{item.goodsId}}" wx:for="{{wtao.wtaoProducts}}" wx:for-item="item" wx:key="id">
+        <van-card
+          desc="{{item.name}}"
+          title="{{item.brief}}"
+          price="{{item.retailPrice}}"
+          origin-price="{{item.counterPrice}}"
+          thumb="{{item.picUrl}}"
+        />
+      </navigator>
+    </scroll-view>
+  </van-popup>
+</view>
+

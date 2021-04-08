@@ -1,0 +1,187 @@
+{
+  "description": "项目配置文件。",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": true,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "useApiHostProcess": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.12.2",
+  "appid": "wx0c0db5ae90b1e008",
+  "projectname": "wtao",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "专题",
+          "pathName": "pages/topic/topic",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "专题详情",
+          "pathName": "pages/topicDetail/topicDetail",
+          "query": "id=314"
+        },
+        {
+          "id": -1,
+          "name": "订单列表",
+          "pathName": "pages/ucenter/order/order",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "团购专区",
+          "pathName": "pages/groupon/patchGroupon/patchGroupon",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "拼团邀请",
+          "pathName": "pages/groupon/patchGrouponShare/patchGrouponShare",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "拼团异常",
+          "pathName": "pages/groupon/patchGrouponException/patchGrouponException",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "选择优惠券",
+          "pathName": "pages/ucenter/couponSelect/couponSelect",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "我的优惠券列表",
+          "pathName": "pages/ucenter/couponList/couponList",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "优惠券列表",
+          "pathName": "pages/coupon/coupon",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "帮助中心",
+          "pathName": "pages/help/help",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/goods/goods",
+          "pathName": "pages/goods/goods",
+          "query": "scene=id=1181000",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/goods/goods",
+          "pathName": "pages/goods/goods",
+          "query": "scene=id%3D1181000",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/goods/goods",
+          "pathName": "pages/goods/goods",
+          "query": "scene=id%3D1181000",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/groupon/patchGrouponShare/patchGrouponShare",
+          "pathName": "pages/groupon/patchGrouponShare/patchGrouponShare",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "微淘",
+          "pathName": "pages/wtao/wtaoList/wtaoList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 16,
+          "name": "预览图片",
+          "pathName": "pages/wtao/wtaoPreview/wtaoPreview",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "微淘详情",
+          "pathName": "pages/wtao/wtao/wtao",
+          "query": "id=6",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/ucenter/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/admin/orderDetail/orderDetail",
+          "pathName": "pages/admin/orderDetail/orderDetail",
+          "query": "id=243",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

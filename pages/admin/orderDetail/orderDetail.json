@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "扫码订单详情",
+  "usingComponents": {
+    "van-icon": "../../../lib/icon/index",
+    "van-steps": "../../../lib/steps/index",
+    "van-popup": "../../../lib/popup/index",
+    "van-field": "../../../lib/field/index",
+    "van-picker": "../../../lib/picker/index",
+    "van-button": "../../../lib/button/index",
+    "van-cell": "../../../lib/cell/index",
+    "van-cell-group": "../../../lib/cell-group/index"
+  }
+}

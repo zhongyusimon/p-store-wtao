@@ -1,0 +1,33 @@
+<view class="container">
+  
+  <swiper class="banner" wx:if="{{banner != null && banner.length > 0}}" indicator-dots="true" autoplay="true" interval="10000" duration="1000">
+      <swiper-item wx:for="{{banner}}" wx:key="id">
+        <image bindtap="tapBanner" data-ad="{{item}}" src="{{item.url}}" mode="aspectFill"></image>
+      </swiper-item>
+  </swiper>
+  <view class="patch-groupon-list">
+    <view class="item" wx:for="{{grouponList}}" wx:for-index="index" wx:for-item="item" wx:key="id">
+      <navigator url="/pages/goods/goods?id={{item.goodsId}}&patchGrouponId={{item.id}}">
+        <view style="height: 355rpx;position: relative;">
+          <image class="img" src="{{item.themePic}}" mode="aspectFill"></image>
+          <view class="label">{{item.groupMembers}}人团</view>
+        </view>
+        <view class="bottom">
+          <view class="text">
+            <view class="header">
+              <text class="name">{{item.activityTitle}}</text>
+              <text wx:if="{{item.description != null}}"  class="desc">{{item.description}}</text>
+            </view>
+            <view class="price">
+              <view class="retailPrice">￥{{item.grouponPrice}}</view>
+              <view class="counterPrice">￥{{item.counterPrice}}</view>
+              <view class="link-button">
+                <van-button round type="info" size="mini" color="#a78845">去拼团</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

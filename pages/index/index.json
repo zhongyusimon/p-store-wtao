@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "van-icon": "../../lib/icon/index",
+    "van-skeleton": "../../lib/skeleton/index",
+    "van-notice-bar": "../../lib/notice-bar/index"
+  }
+}

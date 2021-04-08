@@ -1,0 +1,119 @@
+/**app.wxss**/
+
+.container {
+  box-sizing: border-box;
+  background-color: #F5F5F5;
+  font-family: PingFangSC-Light, helvetica, 'Heiti SC';
+}
+
+view, image, text, navigator {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+view, text {
+  font-family: PingFangSC-Light, helvetica, 'Heiti SC';
+  font-size: 29rpx;
+}
+
+
+.share-btn{
+  height: 100%;
+  display: inline-block;
+  padding: 0rpx;
+  margin: 0rpx;
+  line-height: 0px;
+  overflow: auto;
+}
+
+.share-btn::after{
+  border: 0px solid black;
+}
+
+.wtao-card{
+  margin: 0rpx 0rpx 50rpx 0rpx;
+  background: #FFF;
+  border-radius: 20rpx;
+  padding: 20rpx;
+}
+
+.wtao-card .content {
+  width: 100%;
+}
+
+.wtao-card  .time{ 
+  font-size: 25rpx;
+  color: #555;
+}
+
+.wtao-card  .video{ 
+  width: 670rpx;
+}
+
+.wtao-card  .tags{ 
+  margin: 10rpx 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wtao-card  .tags .tag{
+  margin: 0 20rpx 10rpx 0;
+}
+
+.wtao-card .operation {
+  padding: 10rpx 0;
+  display:flex;
+}
+.wtao-card .operation .likes {
+  width: 75%;
+  display: flex;
+}
+
+.wtao-card .operation .likes .avatar {
+  height: 50rpx;
+  width: 50rpx;
+  border: 1rpx solid rgba(255, 255, 255, 1);
+  border-radius: 50%;
+}
+
+.wtao-card .operation .likes .avatar:nth-of-type(n+2) {
+  margin-left: -15rpx;
+}
+
+.wtao-card .operation .likes .txt {
+  font-size: 26rpx;
+  color: #fff;
+  line-height: 60rpx;
+  margin: 0rpx 10rpx;
+}
+
+.wtao-card .operation .btn {
+  display:flex;
+  text-align: center;
+  width: 25%;
+}
+
+.wtao-card .operation .share-btn {
+  margin-left: 30rpx;
+  background-color:transparent;
+}
+
+.wtao-card .content .cover {
+  width: 750rpx;
+  height: 100%;
+}
+
+.wtao-card .content .title {
+  font-size: 32rpx;
+  font-weight: bold;
+  display: block;
+  color: #ffffff;
+}
+
+.wtao-card .content .desc {
+  font-size: 26rpx;
+  color:#ccc;
+  display: block;
+}
+

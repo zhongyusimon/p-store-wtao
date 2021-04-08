@@ -1,0 +1,159 @@
+page{
+  background-color: #fff;
+}
+
+.container {
+  box-sizing: border-box;
+  background-color: #fff;
+  font-family: PingFangSC-Light, helvetica, 'Heiti SC';
+}
+.images image{
+  display: block;
+}
+
+.describe-content{
+  padding: 10rpx 30rpx 50rpx 30rpx;
+}
+
+.wxParse-p{
+    margin: 10rpx 0rpx;
+}
+
+.content image {
+  display: inline-block;
+  width: 100%;
+  margin: 10rpx 0rpx;
+}
+
+.tags{ 
+  margin: 10rpx 0rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tags .tag{
+  margin: 0 20rpx 10rpx 0;
+}
+
+.short-content{
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #000;
+}
+
+.request-body {
+  float: left;
+  width:100%;
+  background: #000;
+}
+.request-body .video-body {
+  min-height: 100vh;
+}
+.request-body .video-body .video{
+  width:100%;
+}
+.request-body .swiper_box {
+  min-height: calc(100vh - 50rpx);
+}
+.request-body .swiper-content{
+  width:100%;
+  height: 100%;
+  position: relative;
+}
+.request-body .swiper-content .swiper-bd {
+	position: relative;
+	overflow: hidden;
+  width:100%;
+  height: 100%;
+  box-shadow: 0rpx 0rpx 20rpx 0rpx #888;
+}
+.request-body .swiper-content .swiper-bd {
+	position: relative;
+	overflow: hidden;
+  width:100%;
+  height: 100%;
+  box-shadow: 0rpx 0rpx 20rpx 0rpx #888;
+}
+.request-body .swiper-content .swiper-bd image{
+  height: calc(100vh - 50rpx - 150rpx);
+  width: 100%;
+}
+.request-body .content-footer {
+  width: 100%; 
+  height: 130rpx; 
+  position: absolute; 
+  bottom: 25rpx; 
+}
+
+.request-body .content-footer .operation {
+  padding: 10rpx 0;
+  display:flex;
+}
+.request-body .content-footer .operation .likes {
+  width: 75%;
+  display: flex;
+}
+
+.request-body .content-footer .operation .likes .product{
+  width: 300rpx;
+  height: 100rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  padding: 10rpx;
+  margin-left: 20rpx;
+  display: flex;
+  z-index: 10;
+}
+.request-body .content-footer .operation .likes .product-backgroud{
+  width: 300rpx;
+  height: 100rpx;
+  background: #CCC;
+  border-radius: 10rpx;
+  margin: -5rpx 0 5rpx -295rpx;
+}
+
+.request-body .content-footer .operation .likes .avatar {
+  height: 80rpx;
+  width: 80rpx;
+}
+.request-body .content-footer .operation .likes .desc {
+  width: 190rpx;
+  height: 80rpx;
+  margin-left: 10rpx;
+}
+.request-body .content-footer .operation .likes .title {
+  height: 49rpx;
+  font-size: 25rpx;
+  line-height: 25rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.request-body .content-footer .operation .likes .price {
+  color: #993333;
+}
+.request-body .content-footer .operation .likes .price .origin-price {
+  color: #999999;
+  font-size: 22rpx;
+  text-decoration:line-through;
+  margin-left: 5rpx;
+}
+
+.request-body .content-footer .operation .likes .txt {
+  font-size: 26rpx;
+  color: #fff;
+  line-height: 60rpx;
+  margin: 0rpx 10rpx;
+}
+
+.request-body .content-footer .operation .btn {
+  display:flex;
+  text-align: center;
+  width: 25%;
+  height: 100rpx;
+  padding-top: 15rpx;
+}
+
+.request-body .content-footer .operation .share-btn {
+  width: 120rpx;
+  background-color:transparent;
+}

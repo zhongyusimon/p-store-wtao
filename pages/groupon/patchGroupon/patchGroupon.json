@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "拼团",
+  "usingComponents": {
+    "zan-capsule": "/lib/zanui-weapp/capsule/index",
+    "van-button": "../../../lib/button/index"
+  }
+}

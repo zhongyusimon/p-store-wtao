@@ -1,0 +1,73 @@
+<view class="container">
+  <view class="groupons">
+    <view class="groupon">
+      <view class="h">
+        <view class="l" wx:if="{{ grouponInst.status == 2 }}">
+          <view style="padding-top:20rpx;">
+            <van-count-down time="{{ grouponInst.remainedTime }}"/>
+          </view>
+          <view>后结束</view>
+        </view>
+        <view class="l" wx:else>
+          <view>
+            {{ grouponInst.statusText }}
+          </view>
+        </view>
+        <view class="r">{{ grouponInst.totalMembers }}人团，仅剩{{ grouponInst.totalMembers - grouponInst.joinedMembers }}个名额</view>
+      </view>
+      <view class="goods">
+        <view class="img">
+          <image src="{{ grouponInst.grouponTheme.productPic }}" mode="aspectFit"></image>
+        </view>
+        <view class="info">
+          <text class="name">{{ grouponInst.grouponTheme.activityTitle }}</text>
+          <text class="desc">{{ grouponInst.grouponTheme.description }}</text>
+          <view class="number">
+            <view class="group-num">{{ grouponInst.totalMembers }}人团</view>
+          </view>
+          <view class="price">
+            <view class="retailPrice">￥{{ grouponInst.grouponTheme.grouponPrice }}</view>
+            <view class="counterPrice">￥{{ grouponInst.grouponTheme.counterPrice }}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="join-groupon">
+    <view class="info" style="width:{{ 100 / grouponInst.totalMembers }}%;" wx:for="{{grouponInst.grouponDetailList}}" wx:key="id">
+      <view class="user">
+        <image class="img" wx:if="{{item.userAvatar != null}}" src="{{item.userAvatar}}"></image>
+        <view class="img-none" wx:else>?</view>
+        <view style="width: 90rpx;color: #996600;" wx:if="{{item.captainType == 1}}">团长</view>
+      </view>
+    </view>
+  </view>
+  <view class="join-btn">
+    <van-button wx:if="{{ grouponInst.status == 2 && grouponInst.orderOwner == 1 }}" icon="share" round color="#996600" size="large" open-type="share">
+      邀请好友参团
+    </van-button>
+    <van-button wx:if="{{ grouponInst.status == 2 && grouponInst.orderOwner == 0 }}" round color="#996600" size="large" bindtap="fastJoin">
+      一键参团
+    </van-button>
+    <van-button wx:if="{{ grouponInst.status != 2 }}" round color="#996600" size="large" bindtap="reBuy">
+      重新开团
+    </van-button>
+  </view>
+  <!-- 大家都在拼 -->
+  <view class="related-goods" wx:if="{{relatedGoods.length > 0}}">
+    <view class="h">
+      <view class="line"></view>
+      <text class="title">大家都在拼</text>
+    </view>
+    <view class="b">
+      <view class="item" wx:for="{{relatedGoods}}" wx:key="id">
+        <navigator url="/pages/goods/goods?id={{item.goodsId}}&patchGrouponId={{item.id}}">
+          <image class="img" src="{{item.productPic}}" background-size="cover"></image>
+          <text class="name">{{item.activityTitle}}</text>
+          <text class="desc">{{item.description == null ? '' : item.description}}</text>
+          <text class="price">￥{{item.grouponPrice}}</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

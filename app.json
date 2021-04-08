@@ -1,0 +1,106 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/catalog/catalog",
+    "pages/newGoods/newGoods",
+    "pages/hotGoods/hotGoods",
+    "pages/ucenter/index/index",
+    "pages/ucenter/address/address",
+    "pages/ucenter/addressAdd/addressAdd",
+    "pages/ucenter/feedback/feedback",
+    "pages/ucenter/footprint/footprint",
+    "pages/ucenter/order/order",
+    "pages/ucenter/orderDetail/orderDetail",
+    "pages/ucenter/couponList/couponList",
+    "pages/ucenter/couponSelect/couponSelect",
+    "pages/ucenter/collect/collect",
+    "pages/auth/login/login",
+    "pages/auth/accountLogin/accountLogin",
+    "pages/auth/register/register",
+    "pages/auth/reset/reset",
+    "pages/payResult/payResult",
+    "pages/comment/comment",
+    "pages/commentPost/commentPost",
+    "pages/h5/index",
+    "pages/topic/topic",
+    "pages/topicComment/topicComment",
+    "pages/topicDetail/topicDetail",
+    "pages/topicCommentPost/topicCommentPost",
+    "pages/brand/brand",
+    "pages/brandDetail/brandDetail",
+    "pages/search/search",
+    "pages/category/category",
+    "pages/cart/cart",
+    "pages/checkout/checkout",
+    "pages/goods/goods",
+    "pages/about/about",
+    "pages/groupon/myGroupon/myGroupon",
+    "pages/groupon/grouponDetail/grouponDetail",
+    "pages/groupon/grouponList/grouponList",
+    "pages/groupon/patchGroupon/patchGroupon",
+    "pages/groupon/patchGrouponShare/patchGrouponShare",
+    "pages/groupon/patchGrouponException/patchGrouponException",
+    "pages/coupon/coupon",
+    "pages/wtao/wtao/wtao",
+    "pages/wtao/wtaoPreview/wtaoPreview",
+    "pages/wtao/wtaoList/wtaoList",
+    "pages/wtao/wtaoList-tag/wtaoList",
+    "pages/help/help",
+    "pages/admin/order/order",
+    "pages/admin/orderDetail/orderDetail"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "费尔工坊拼团",
+    "enablePullDownRefresh": true,
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFFFFF",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+    "selectedColor": "#AB956D",
+    "color": "#666",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/home.png",
+        "selectedIconPath": "static/images/home@selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/groupon/patchGroupon/patchGroupon",
+        "iconPath": "static/images/group.png",
+        "selectedIconPath": "static/images/groupon@selected.png",
+        "text": "拼团"
+      },
+      {
+        "pagePath": "pages/wtao/wtaoList/wtaoList",
+        "iconPath": "static/images/wtao.png",
+        "selectedIconPath": "static/images/wtao@selected.png",
+        "text": "微淘"
+      },
+      {
+        "pagePath": "pages/ucenter/order/order",
+        "iconPath": "static/images/order.png",
+        "selectedIconPath": "static/images/order@selected.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/ucenter/index/index",
+        "iconPath": "static/images/my.png",
+        "selectedIconPath": "static/images/my@selected.png",
+        "text": "个人"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "sitemapLocation": "sitemap.json"
+}
